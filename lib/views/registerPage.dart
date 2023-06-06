@@ -1,28 +1,28 @@
 import 'package:atividade_30_05/viewmodels/authetication.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  LoginEmaileSenha loginEmaileSenha = LoginEmaileSenha();
+class _RegisterPageState extends State<RegisterPage> {
+  RegisterEmaileSenha registerEmaileSenha = RegisterEmaileSenha();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Registrar'),
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 15, 32, 10),
         child: Column(
           children: [
             TextField(
-              controller: loginEmaileSenha.controladorEmail,
+              controller: registerEmaileSenha.controladorEmail,
               decoration: const InputDecoration(
                 label: Text('E-mail'),
                 border: OutlineInputBorder(),
@@ -30,24 +30,19 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 15,),
             TextField(
-              controller: loginEmaileSenha.controladorSenha,
+              controller: registerEmaileSenha.controladorSenha,
               decoration: const InputDecoration(
                 label: Text('Senha'),
                 border: OutlineInputBorder(),
               ),
             ),
-            TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/register');
-                },
-                child: const Text('Clique aqui para se registrar')),
             ElevatedButton(
               onPressed: () {
                 setState(() async {
-                  await loginEmaileSenha.login(context);
+                  await registerEmaileSenha.register(context);
                 });
               },
-              child: const Text('Login'),
+              child: const Text('Registrar'),
             ),
           ],
         ),
