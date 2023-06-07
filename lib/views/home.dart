@@ -18,15 +18,50 @@ class HomeLogar extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   )),
               SizedBox(
-                height: 20,
+                height: 10,
+              ),
+              Container(
+                  child: Image.asset('images/assets/Logo.png'), height: 220),
+              SizedBox(
+                height: 10,
               ),
               AutoSizeText(
-                'Ao CoisaNossa, aqui você pode doar aquelas coisas '
-                    'que não usa mais e recolher coisas que achar interessante',
+                'Aqui no CoisaNossa, você pode doar aquelas coisas '
+                'que não usa mais e recolher coisas que achar interessante',
                 style: TextStyle(fontSize: 21),
                 textAlign: TextAlign.justify,
                 maxLines: 4,
-              )
+              ),
+              SizedBox(
+                height: 100,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      backgroundColor: Color.fromRGBO(118, 74, 43, 1),
+                      padding: EdgeInsets.fromLTRB(60, 10, 60, 10)),
+                  child: Text(
+                    'Logar',
+                    style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                  )),
+              SizedBox(height: 10,),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      backgroundColor: Color.fromRGBO(148, 101, 68, 1),
+                      padding: EdgeInsets.fromLTRB(30, 10, 30, 10)),
+                  child: Text(
+                    'Registrar-se',
+                    style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                  )),
             ],
           ),
         ),

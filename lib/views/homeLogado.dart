@@ -1,4 +1,8 @@
 import 'package:atividade_30_05/viewmodels/authetication.dart';
+import 'package:atividade_30_05/views/doacaoPage.dart';
+import 'package:atividade_30_05/views/explorarPage.dart';
+import 'package:atividade_30_05/views/pessoalPage.dart';
+import 'package:atividade_30_05/views/procurarPage.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,16 +14,59 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Logout logout = Logout();
+  int _paginaSelecionada = 0;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      appBar: AppBar(centerTitle: true,
-        title: Text('Home'),
-        actions: [IconButton(onPressed: (){setState(() async { await logout.logout(context);
-        });}, icon: Icon(Icons.logout))],
-      ),
-      body: Column(),
-    );
+        body: IndexedStack(
+          index: _paginaSelecionada,
+          children: [
+            DoacoesPage(),
+            ExplorarPage(),
+            PessoalPage(),
+            ProcurarPage(),
+          ],
+        ),
+        bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+              color: Colors.brown,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  blurRadius: 3,
+                ),
+              ],
+            ),
+          child: BottomNavigationBar(
+            unselectedItemColor: Color.fromRGBO(118, 74, 43, 1),
+            selectedItemColor: Colors.green,
+            currentIndex: _paginaSelecionada,
+            onTap: (int novoIndice) {
+              setState(() {
+                _paginaSelecionada = novoIndice;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: 'Procurar',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.explore),
+                label: 'Explorar',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.menu_book),
+                label: 'Minhas Doações',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Pessoal',
+              ),
+            ],
+          ),
+        ));
   }
 }
