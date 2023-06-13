@@ -12,27 +12,28 @@ class HomeLogar extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              Text('Bem-Vindo',
+              const Text('Bem-Vindo',
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
-                  child: Image.asset('images/assets/Logo.png'), height: 220),
               SizedBox(
+                  height: 220,
+                  child: Image.asset('images/assets/Logo.png')),
+              const SizedBox(
                 height: 10,
               ),
-              AutoSizeText(
+              const AutoSizeText(
                 'Aqui no CoisaNossa, você pode doar aquelas coisas '
                 'que não usa mais e recolher coisas que achar interessante',
                 style: TextStyle(fontSize: 21),
                 textAlign: TextAlign.justify,
                 maxLines: 4,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               ElevatedButton(
@@ -42,13 +43,13 @@ class HomeLogar extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
-                      backgroundColor: Color.fromRGBO(118, 74, 43, 1),
-                      padding: EdgeInsets.fromLTRB(60, 10, 60, 10)),
-                  child: Text(
+                      backgroundColor: const Color.fromRGBO(118, 74, 43, 1),
+                      padding: const EdgeInsets.fromLTRB(60, 10, 60, 10)),
+                  child: const Text(
                     'Logar',
                     style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                   )),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/register');
@@ -56,9 +57,9 @@ class HomeLogar extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
-                      backgroundColor: Color.fromRGBO(148, 101, 68, 1),
-                      padding: EdgeInsets.fromLTRB(30, 10, 30, 10)),
-                  child: Text(
+                      backgroundColor: const Color.fromRGBO(148, 101, 68, 1),
+                      padding: const EdgeInsets.fromLTRB(30, 10, 30, 10)),
+                  child: const Text(
                     'Registrar-se',
                     style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                   )),

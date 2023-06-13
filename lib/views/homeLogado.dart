@@ -22,11 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         body: IndexedStack(
           index: _paginaSelecionada,
-          children: [
-            DoacoesPage(),
-            ExplorarPage(),
-            PessoalPage(),
+          children: const [
             ProcurarPage(),
+            ExplorarPage(),
+            DoacoesPage(),
+            PessoalPage(),
           ],
         ),
         bottomNavigationBar: Container(
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           child: BottomNavigationBar(
-            unselectedItemColor: Color.fromRGBO(118, 74, 43, 1),
+            unselectedItemColor: const Color.fromRGBO(118, 74, 43, 1),
             selectedItemColor: Colors.green,
             currentIndex: _paginaSelecionada,
             onTap: (int novoIndice) {
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 _paginaSelecionada = novoIndice;
               });
             },
-            items: [
+            items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.search),
                 label: 'Procurar',
