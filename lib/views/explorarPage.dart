@@ -10,6 +10,12 @@ class ExplorarPage extends StatefulWidget {
 class _ExplorarPageState extends State<ExplorarPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Explorar'),
+        centerTitle: true,
+        backgroundColor: Color.fromRGBO(118, 74, 43, 1),
+      ),
+    );
   }
 }

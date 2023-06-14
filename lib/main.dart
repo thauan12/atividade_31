@@ -1,6 +1,7 @@
 import 'package:atividade_30_05/views/home.dart';
 import 'package:atividade_30_05/views/homeLogado.dart';
 import 'package:atividade_30_05/views/login_page.dart';
+import 'package:atividade_30_05/views/novaDoacaoScreen.dart';
 import 'package:atividade_30_05/views/registerPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,6 +21,7 @@ void main() async {
       '/login' : (_) => const LoginPage(),
       '/register' : (_) => const RegisterPage(),
       '/home' : (_) => const HomeScreen(),
+      '/novaDoacao' : (_) => const NovaDoacao(),
 
     },
   ));
