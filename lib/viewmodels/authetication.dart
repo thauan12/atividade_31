@@ -1,15 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-//import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 //import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginViewModel extends ChangeNotifier {
-//  final FirebaseAuth _auth = FirebaseAuth.instance;
-//  final GoogleSignIn _googleSignIn = GoogleSignIn();
-//  final FacebookAuth _facebookAuth = FacebookAuth.instance;
-}
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
+//  final FacebookAuth _facebookAuth = FacebookAuth.instance;
+
+  Future<void> signInWithGoogle(BuildContext context) async {
+    try {
+      final GoogleSignInAccount? googleSignInAccount = await _googleSignIn
+          .signIn();
+      final GoogleSignInAuthentication googleSignInAuthentication =
+      await googleSignInAccount!.authentication;
+
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleSignInAuthentication.accessToken,
+        idToken: googleSignInAuthentication.idToken,
+      );
+
+      final UserCredential userCredential = await _auth.signInWithCredential(
+          credential);
+      final User? user = userCredential.user;
+
+      Navigator.pushReplacementNamed(context, '/home');
+      // O usuário foi autenticado com sucesso. Faça algo com o usuário logado.
+    } catch (e) {
+      print('Erro durante a autenticação com o Google: $e');
+    }
+  }
+}
 class LoginEmaileSenha {
   final TextEditingController _controladorEmail = TextEditingController();
   final TextEditingController _controladorSenha = TextEditingController();

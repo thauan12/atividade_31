@@ -10,6 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  LoginViewModel loginViewModel = LoginViewModel();
   LoginEmaileSenha loginEmaileSenha = LoginEmaileSenha();
   bool _isPasswordVisible = false;
 
@@ -67,6 +68,8 @@ class _LoginPageState extends State<LoginPage> {
               },
               child: const Text('Login'),
             ),
+            SizedBox(height: 20,),
+            ElevatedButton(onPressed: ()=>loginViewModel.signInWithGoogle(context), child: Icon(Icons.g_mobiledata))
           ],
         ),
       ),
