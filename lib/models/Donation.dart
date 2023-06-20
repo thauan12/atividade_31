@@ -18,16 +18,37 @@ class Donation {
 });
   factory Donation.fromMap(Map<String, dynamic> map) {
     return Donation(
-      nome: map['nome'] as String,
-      tipo: map['tipo'] as String,
-      condicao: map['condicao'] as String,
-      disponivel: map['disponivel'] as String,
-      descricao: map['descricao'] as String,
-      dono: map['dono'] as String,
-      foto: map['foto'] as String,
+      nome: map['nome'],
+      tipo: map['tipo'],
+      condicao: map['condicao'],
+      disponivel: map['disponivel'],
+      descricao: map['descricao'],
+      dono: map['dono'],
+      foto: map['foto'],
     );
   }
-  String get imagemUrl {
-    return foto;
+
+  Map<String, dynamic> toMap(){
+    return{
+      'nome': nome,
+      'tipo': tipo ,
+    'condicao' : condicao ,
+      'disponivel': disponivel ,
+      'descricao': descricao ,
+      'dono': dono ,
+      'foto':foto,
+    };
+  }
+
+  factory Donation.fromJson(Map<String, dynamic> json, String id) {
+    return Donation(
+      nome: json['nome'],
+      tipo: json['tipo'],
+      condicao: json['condicao'],
+      disponivel: json['disponivel'],
+      descricao: json['descricao'],
+      dono: json['dono'],
+      foto: json['foto'],
+    );
   }
 }

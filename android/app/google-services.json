@@ -12,7 +12,12 @@
           "package_name": "com.example.atividade_30_05"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "879059242373-i9jh2j6pbr5boja7qrfdr2orihbh6fq1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA2sVkK4eLygV0U1bNSrBg4heuh35dZHrw"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879059242373-i9jh2j6pbr5boja7qrfdr2orihbh6fq1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "879059242373-v4rsqgutcvigbgu2p4ik8et09k8e2cep.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.atividade3005"
+              }
+            }
+          ]
         }
       }
     }

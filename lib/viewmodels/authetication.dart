@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
 //import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
@@ -106,4 +107,51 @@ class Logout {
           .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
     } catch (e) {}
   }
+}
+
+class UserController extends GetxController {
+  Rx<User?> _user = Rx<User?>(null);
+
+  User? get user => _user.value;
+
+  @override
+  void onInit() {
+    super.onInit();
+    _user.bindStream(FirebaseAuth.instance.authStateChanges());
+  }
+}
+
+Future<void> esqueceuSenha(context, String emailAddress) async {
+  await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress);
+
+  if (emailAddress.isEmpty) {
+    return;
+  }
+
+  await FirebaseAuth.instance.sendPasswordResetEmail(email: emailAddress);
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('E-mail enviado'),
+      content: const Text('Verifique seu e-mail para redefinir sua senha.'),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('OK'),
+        ),
+      ],
+    ),
+  );
+}
+
+
+Future<void> atualizarUsuario(
+    context, String email, String displayName) async {
+  final user = await FirebaseAuth.instance.currentUser;
+  if (user != null) {
+    user.updateDisplayName(displayName);
+    user.updateEmail(email);
+   }
 }

@@ -69,6 +69,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '879059242373',
     projectId: 'atividade-30-05',
     storageBucket: 'atividade-30-05.appspot.com',
+    iosClientId: '879059242373-v4rsqgutcvigbgu2p4ik8et09k8e2cep.apps.googleusercontent.com',
     iosBundleId: 'com.example.atividade3005',
   );
 }
